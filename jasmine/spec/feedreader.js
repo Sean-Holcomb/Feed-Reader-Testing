@@ -111,11 +111,35 @@ $(function() {
             expect(feedContent).not.toBe(feed.find('h2').text());
         });
     });
+    /* This suite of test is for additional features not yet implemented.
+    * All tests should fail. Test suite for popular article feature
+    */
+    describe('Popular Entries', function() {
 
-    describe('my test', function() {
+        //Loads and sorts feed entries by popularity
+        beforeEach(function(done) {
+            loadPopFeed(done);
+        });
 
-        it('does my test', function() {
+        //Test that clicking a link increases its popularity.
+        it('increments counter', function() {
+            var link = $('.tpl-entry')[0].find('a').attr('href');
+            var count = getPop(link);
+            $('.tpl-entry')[0].trigger('click');
+            expect(count).not.toBe(getPop(link));
+        });
 
+        //Test that the most popular feed is correctly ordered
+        it('has a higher count', function() {
+            var entries = $('.feed').find('.entry');
+            var len - entries.length;
+            var countOne;
+            var countTwo;
+            for (var i = 0; i < len-1; i++){}
+                countOne = getPop(entries[0].find('a').attr('href'));
+                countTwo = getPop(entries[1].find('a').attr('href'));
+                expect(countOne).toBeGreaterThan(countTwo);
+            }
         });
     });
 }());
