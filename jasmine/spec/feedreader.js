@@ -132,10 +132,10 @@ $(function() {
         //Test that the most popular feed is correctly ordered
         it('has a higher count', function() {
             var entries = $('.feed').find('.entry');
-            var len - entries.length;
+            var len = entries.length;
             var countOne;
             var countTwo;
-            for (var i = 0; i < len-1; i++){}
+            for (var i = 0; i < len-1; i++){
                 countOne = getPop(entries[0].find('a').attr('href'));
                 countTwo = getPop(entries[1].find('a').attr('href'));
                 expect(countOne).toBeGreaterThan(countTwo);
